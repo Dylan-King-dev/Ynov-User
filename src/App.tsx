@@ -1,30 +1,21 @@
 import './App.css'
-import HelloWorld from './components/HelloWorld'
 import { useState } from 'react'
+import data from "./data/recipes.json"
+import "./style/acceuil.css"
+import { Link } from "react-router-dom"
 
 function App() {
-  let isValid: boolean = true;
-  const [count, setCount] = useState<number>(0);
 
   return (
     <>
       <section id="center">
-        <div>
-          {isValid && <HelloWorld name="Ynov User" />}
-          {
-            count > 3 ?
-              <div>Important things</div>
-              :
-              <div>Silly things</div>
-          }
-          {
-            ["Loise", "Jean", "Paul", "Marie"]
-              .map((el) => <HelloWorld name={el} />)
-          }
-          {
-            <button onClick={() => setCount(count + 1)}> Click me </button>
-          }
-        </div>
+        {data.recipes.map((recipe)=>(
+          <div key ={recipe.id}>
+            <h2>{recipe.name}</h2>
+            <Link to={`recipe/${recipe.id}`}><img id="image" src={recipe.image} alt={recipe.name} /></Link>
+            <p>{recipe.prepTimeMinutes} minutes</p> 
+          </div>
+        ))}
       </section>
     </>
   )

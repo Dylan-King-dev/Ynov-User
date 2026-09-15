@@ -7,6 +7,7 @@ import './index.css'
 import App from './App.tsx'
 import UserList from './pages/UserList.tsx';
 import User from './pages/User.tsx'
+import Recipe from './pages/Recipe.tsx';
 
 const Layout = () => (
   <>
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/user/:username",
         element: <User />
+      },
+      {
+        path: "/recipe/:id",
+        element: <Recipe />
       }
     ]
   }
