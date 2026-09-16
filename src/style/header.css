@@ -1,0 +1,45 @@
+.site-header {
+  background: #fffaf0;
+  border-bottom: 1px solid #e3d5bf;
+  box-shadow: 0 2px 8px rgba(92, 64, 51, 0.08);
+  padding: 18px 32px;
+}
+
+.site-nav {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  border-radius: 5px;
+  color: #67584d;
+  display: block;
+  font-size: 15px;
+  padding: 8px 14px;
+  text-decoration: none;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: #f3ddd1;
+  color: #a94f3d;
+}
+
+@media (max-width: 520px) {
+  .site-header {
+    padding: 14px 12px;
+  }
+
+  .site-nav {
+    gap: 2px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+    padding: 8px 9px;
+  }
+}

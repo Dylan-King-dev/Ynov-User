@@ -1,21 +1,29 @@
 import { useParams } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import data from "../data/recipes.json"
-import "../style/acceuil.css"
+import "../style/Recipe.css"
 
 function Recipe() {
     let { id } = useParams();
     const navigate = useNavigate();
 
-    const recipe = data.recipes.find((recipe)=> recipe.id === parseInt(id!));
+    if (!id) {
+        navigate("/Error");
+    }
+    const recipe = data.recipes.find((recipe)=> recipe.id === parseInt(String(id)));
 
     return (
         <>
-                <div key={recipe?.id}>
-                    <h2>{recipe?.name}</h2><img id="solo_image" src={recipe?.image} alt={recipe?.name} />
-                    <p>{recipe?.ingredients}</p>
-                    <p>{recipe?.instructions}</p>
-                </div>
+                <main className="page-content recipe-page" key={recipe?.id}>
+                    <h1>{recipe?.name}</h1>
+                    <img className="recipe-image" src={recipe?.image} alt={recipe?.name} />
+                    <section className="recipe-copy">
+                        <h2>Ingredients</h2>
+                        <p>{recipe?.ingredients}</p>
+                        <h2>Instructions</h2>
+                        <p>{recipe?.instructions}</p>
+                    </section>
+                </main>
         </>
     )
 

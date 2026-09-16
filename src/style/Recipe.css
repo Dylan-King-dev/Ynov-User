@@ -1,0 +1,28 @@
+
+.recipe-page {
+    max-width: 760px;
+}
+
+.recipe-image {
+    border-radius: 8px;
+    display: block;
+    height: 360px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.recipe-copy {
+    background: #fffaf0;
+    border-left: 4px solid #d97757;
+    margin-top: 24px;
+    padding: 20px 24px;
+    text-align: left;
+}
+
+.recipe-copy h2 {
+    margin-top: 0;
+}
+
+.recipe-copy h2:not(:first-child) {
+    margin-top: 24px;
+}
