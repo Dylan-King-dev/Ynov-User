@@ -19,8 +19,7 @@ function UserList() {
                 {data.users.map((user) => (
                     <article className="user-card" key={user.id}>
                         <Link to={`/user/${user.id}`}><img className="user-image" src={user.image} alt={user.firstName} /></Link>
-                        <p>{user.firstName} {user.lastName}</p>
-                        <span>@{user.username}</span>
+                        <p>{user.username}</p>
                     </article>
                 ))}
                 </section>

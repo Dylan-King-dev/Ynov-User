@@ -1,16 +1,23 @@
 import { useParams } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
+import { Navigate } from "react-router-dom"
 import data from "../data/recipes.json"
 import "../style/Recipe.css"
 
 function Recipe() {
-    let { id } = useParams();
-    const navigate = useNavigate();
+    const { id } = useParams();
+
+    const recipeId = Number(id);
+    const recipe = data.recipes.find(
+        (recipe) => recipe.id === recipeId
+    );
 
     if (!id) {
-        navigate("/Error");
+        return <Navigate to="/error" replace />;
     }
-    const recipe = data.recipes.find((recipe)=> recipe.id === parseInt(String(id)));
+
+    if (!recipe) {
+        return <Navigate to="/error" replace />;
+    }
 
     return (
         <>
